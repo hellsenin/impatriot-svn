@@ -7,7 +7,8 @@
 <html>
 <head>
 <title>로그인 화면</title>
-<link href="<c:url value='/'/>css/common.css" rel="stylesheet" type="text/css" >
+<!-- <link href="<c:url value='/'/>css/common.css" rel="stylesheet" type="text/css" > -->
+<script type="text/javascript" src="<c:url value='/js/jquery/jquery-1.8.3.js' />"></script>
 <script type="text/javascript">
 </script>
 </head>
