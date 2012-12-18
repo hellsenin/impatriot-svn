@@ -35,7 +35,6 @@
 					<th scope="col" nowrap="nowrap">제목</th>
 					<th scope="col" nowrap="nowrap">작성자</th>
 					<th scope="col" nowrap="nowrap">작성일</th>
-					<th scope="col" nowrap="nowrap">조회수</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -46,57 +45,26 @@
 				<td><b><c:out value="${paginationInfo.totalRecordCount+1 - ((searchVO.pageIndex-1) * searchVO.pageSize + status.count)}"/></b></td>            
 				<td align="left">
 					<form name="subForm" method="post" action="<c:url value='/cop/bbs${prefix}/selectBoardArticle.do'/>">
-					<c:if test="${result.replyLc!=0}">
-						<c:forEach begin="0" end="${result.replyLc}" step="1">
-							&nbsp;
-						</c:forEach>
-						<img src="<c:url value='/images/reply_arrow.gif'/>" alt="reply arrow"/>
-					</c:if>
-					<c:choose>
-						<c:when test="${result.isExpired=='Y' || result.useAt == 'N'}">
-							<c:out value="${result.nttSj}" />
-						</c:when>
-						<c:otherwise>
-								<input type="hidden" name="bbsId" value="<c:out value='${result.bbsId}'/>" />
-								<input type="hidden" name="nttId"  value="<c:out value="${result.nttId}"/>" />
-								<input type="hidden" name="bbsTyCode" value="<c:out value='${brdMstrVO.bbsTyCode}'/>" />
-								<input type="hidden" name="bbsAttrbCode" value="<c:out value='${brdMstrVO.bbsAttrbCode}'/>" />
-								<input type="hidden" name="authFlag" value="<c:out value='${brdMstrVO.authFlag}'/>" />
-								<input name="pageIndex" type="hidden" value="<c:out value='${searchVO.pageIndex}'/>"/>
-								<span class="link"><input type="submit" style="width:320px;border:solid 0px black;text-align:left;" value="<c:out value="${result.nttSj}"/>" ></span>
-						</c:otherwise>
-					</c:choose>
+						<input type="hidden" name="bbsId" value="<c:out value='${result.bbsId}'/>" />
+						<input type="hidden" name="nttId"  value="<c:out value="${result.nttId}"/>" />
+						<span class="link"><input type="submit" style="width:320px;border:solid 0px black;text-align:left;" value="<c:out value="${result.nttSj}"/>" ></span>
 					</form>
 				</td>
-				<c:if test="${brdMstrVO.bbsAttrbCode == 'BBSA01'}">
-					<td ><c:out value="${result.ntceBgnde}"/></td>
-					<td ><c:out value="${result.ntceEndde}"/></td>
-				</c:if>
-				<c:if test="${anonymous != 'true'}">
-					<td ><c:out value="${result.frstRegisterNm}"/></td>
-				</c:if>
+				<td ><c:out value="${result.frstRegisterNm}"/></td>
 				<td ><c:out value="${result.frstRegisterPnttm}"/></td>
-				<td ><c:out value="${result.inqireCo}"/></td>
 			  </tr>
-			 </c:forEach>     
+			 </c:forEach>
 			 <c:if test="${fn:length(resultList) == 0}">
-			  <tr>
-				<c:choose>
-					<c:when test="${brdMstrVO.bbsAttrbCode == 'BBSA01'}">
-						<td colspan="7" ><spring:message code="common.nodata.msg" /></td>
-					</c:when>
-					<c:otherwise>
-						<c:choose>
-							<c:when test="${anonymous == 'true'}">
-								<td colspan="4" ><spring:message code="common.nodata.msg" /></td>
-							</c:when>
-							<c:otherwise>
-								<td colspan="5" ><spring:message code="common.nodata.msg" /></td>
-							</c:otherwise>
-						</c:choose>     
-					</c:otherwise>
-				</c:choose>       
-				  </tr>      
+			 	<tr>
+					<c:choose>
+						<c:when test="${anonymous == 'true'}">
+							<td colspan="4" ><spring:message code="common.nodata.msg" /></td>
+						</c:when>
+						<c:otherwise>
+							<td colspan="5" ><spring:message code="common.nodata.msg" /></td>
+						</c:otherwise>
+					</c:choose>
+				</tr>
 			 </c:if>  
 			</tbody>
 		</table>
