@@ -1,4 +1,5 @@
 package egovframework.let.cop.bbs.service.impl;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -10,6 +11,8 @@ import org.springframework.stereotype.Service;
 
 import egovframework.let.cop.bbs.service.BoardMaster;
 import egovframework.let.cop.bbs.service.BoardMasterVO;
+import egovframework.let.cop.bbs.service.Bull;
+import egovframework.let.cop.bbs.service.BullVO;
 import egovframework.let.cop.bbs.service.EgovBBSAttributeManageService;
 import egovframework.let.cop.com.service.BoardUseInf;
 import egovframework.let.cop.com.service.EgovUserInfManageService;
@@ -45,6 +48,9 @@ public class EgovBBSAttributeManageServiceImpl extends AbstractServiceImpl imple
 
     @Resource(name = "BBSUseInfoManageDAO")
     private BBSUseInfoManageDAO bbsUseDAO;
+    
+    @Resource(name = "BBSBullListDAO")
+    private BBSBullListDAO bbsBullListDAO;
 
     @Resource(name = "EgovUserInfManageService")
     private EgovUserInfManageService userService;
@@ -284,4 +290,13 @@ public class EgovBBSAttributeManageServiceImpl extends AbstractServiceImpl imple
 
 	return map;
     }
+    
+    public List<BullVO> getBullList(Bull bull) throws Exception {
+    	
+    	List<BullVO> bullList = null;
+    	
+    	bullList = bbsBullListDAO.selectBBSBullList(bull);
+    	
+		return bullList;
+	}
 }

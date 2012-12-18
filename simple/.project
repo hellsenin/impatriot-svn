@@ -35,6 +35,11 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
+		<buildCommand>
+			<name>egovframework.bdev.imp.ide.natures.egovnature.builder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.jem.workbench.JavaEMFNature</nature>
@@ -45,5 +50,6 @@
 		<nature>org.springframework.ide.eclipse.core.springnature</nature>
 		<nature>egovframework.dev.imp.ide.natures.egovnature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
+		<nature>egovframework.bdev.imp.ide.natures.egovnature</nature>
 	</natures>
 </projectDescription>

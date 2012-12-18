@@ -52,6 +52,7 @@
     <%
        }
     %>
+    <li><a href="#LINK" onclick="javascript:fn_main_headPageMove('61','cop/bbs/EgovBoardBullList')" >JinDev 게시판</a></li>
 </ul>
 
 <!-- //topmenu end -->

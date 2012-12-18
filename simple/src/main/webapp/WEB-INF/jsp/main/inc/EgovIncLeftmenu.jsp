@@ -73,6 +73,14 @@ String menuNo = ((String)session.getAttribute("menuNo")!=null)?(String)session.g
 			</ul> 
 		</li>
 		<% } %>
+        <% if (menuNo.indexOf("6")== 0) {%>
+		<li class="leftmenu_dept01">
+			<a href="EgovSchedule.jsp">JinDev 게시판</a>
+			<ul>	
+				<li class="dept02"><a href="javascript:fn_main_headPageAction('61','cop/bbs/getBullList.do')">테스트 게시판</a></li>
+			</ul> 
+		</li>
+		<% } %>
 	</ul>
 	</div>
 	<div class="bottom"></div>		

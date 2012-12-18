@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="BBSBullListDAO"><select id="BBSBullListDAO.selectBBSBullList" resultMap="BullDetail">
+SELECT BOARDID, BOARDNAME, BULLID, BULLTITLE, CONTENT, REGID,
+  REGNAME, REGDATE
+  FROM JINDEV_USER.TBB_TEST_BOARD
+</select>
+<typeAlias alias="BullVO" type="egovframework.let.cop.bbs.service.BullVO"/>
+<typeAlias alias="Bull" type="egovframework.let.cop.bbs.service.Bull"/>
+<resultMap id="BullDetail" class="egovframework.let.cop.bbs.service.BullVO">
+<result property="bbsId" column="BOARDID"/>
+<result property="frstRegisterId" column="BOARDNAME"/>
+<result column="BULLID" property="nttId"/>
+<result column="BULLTITLE" property="nttSj"/>
+<result column="CONTENT" property="nttCn"/>
+<result column="REGID" property="ntcrId"/>
+<result column="REGNAME" property="ntcrNm"/>
+<result column="REGDATE" property="frstRegisterPnttm"/>
+
+</resultMap>
+
+
+
+</sqlMap>

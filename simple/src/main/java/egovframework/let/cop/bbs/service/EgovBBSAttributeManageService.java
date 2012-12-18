@@ -122,5 +122,14 @@ public interface EgovBBSAttributeManageService {
 	 */
 	public void validateTemplate(BoardMasterVO searchVO)
 	  throws Exception;
-
+	
+	/**
+	 * 게시판ID로 게시물 속성정보 및 게시물 리스트를 조회한다.
+	 * @param BoardMasterVO
+	 * 
+	 * @param searchVO
+	 * @exception Exception Exception
+	 */
+	public List<BullVO> getBullList(Bull bull)
+	  throws Exception;
 }
