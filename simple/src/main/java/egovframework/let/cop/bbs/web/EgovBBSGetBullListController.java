@@ -30,6 +30,7 @@ public class EgovBBSGetBullListController {
      * @return
      * @throws Exception
      */
+	/*
     @RequestMapping("/cop/bbs/getBullList.do")
     public String getBullList(@ModelAttribute("searchVO") BullVO bullVO, ModelMap model) throws Exception {
     	
@@ -41,6 +42,7 @@ public class EgovBBSGetBullListController {
     	
     	return "cop/bbs/EgovBoardBullView";
     }
+    */
     
     /**
      * 게시물에 대한 목록을 조회한다.
@@ -52,7 +54,7 @@ public class EgovBBSGetBullListController {
      * @throws Exception
      */
     @RequestMapping("/cop/bbs/getBullList.do")
-    public String selectBoardArticles(@ModelAttribute("searchVO") Bull bull, ModelMap model) throws Exception {
+    public String getBullList(@ModelAttribute("searchVO") Bull bull, ModelMap model) throws Exception {
     	
     	//LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
     	

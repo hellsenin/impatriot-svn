@@ -13,8 +13,6 @@
 <link href="<c:url value='/'/>css/common.css" rel="stylesheet" type="text/css" >
 <c:if test="${anonymous == 'true'}"><c:set var="prefix" value="/anonymous"/></c:if>
 <script type="text/javascript" src="<c:url value='/js/EgovBBSMng.js' />" ></script>
-<c:choose>
-<c:otherwise>
 <script type="text/javascript">
 function press(event) {
 	if (event.keyCode==13) {
@@ -37,8 +35,6 @@ function fn_egov_inqire_notice(nttId, bbsId) {
 	document.subForm.submit();          
 }
 </script>
-</c:otherwise>
-</c:choose>
 <title><c:out value="${brdMstrVO.bbsNm}"/> 목록</title>
 
 <style type="text/css">

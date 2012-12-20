@@ -63,7 +63,7 @@ public class Bull implements Serializable {
 	/**
 	 * 게시물 아이디
 	 */
-	private long nttId = 0L;
+	private String nttId = "";
 	
 	/**
 	 * 게시물 번호
@@ -278,14 +278,14 @@ public class Bull implements Serializable {
 	/**
 	 * @return the nttId
 	 */
-	public long getNttId() {
+	public String getNttId() {
 		return nttId;
 	}
 
 	/**
 	 * @param nttId the nttId to set
 	 */
-	public void setNttId(long nttId) {
+	public void setNttId(String nttId) {
 		this.nttId = nttId;
 	}
 

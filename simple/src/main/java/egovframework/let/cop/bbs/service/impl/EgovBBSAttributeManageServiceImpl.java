@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import egovframework.let.cop.bbs.service.BoardMaster;
@@ -60,6 +61,8 @@ public class EgovBBSAttributeManageServiceImpl extends AbstractServiceImpl imple
     
     @Resource(name = "propertiesService")
     protected EgovPropertyService propertyService;
+    
+    Logger log = Logger.getLogger(this.getClass());
     
     //---------------------------------
     // 2009.06.26 : 2단계 기능 추가
@@ -296,6 +299,8 @@ public class EgovBBSAttributeManageServiceImpl extends AbstractServiceImpl imple
     	List<BullVO> bullList = null;
     	
     	bullList = bbsBullListDAO.selectBBSBullList(bull);
+    	
+    	log.debug("[ACUBE BBS] {bullList size} : " + Integer.toString(bullList.size()));
     	
 		return bullList;
 	}

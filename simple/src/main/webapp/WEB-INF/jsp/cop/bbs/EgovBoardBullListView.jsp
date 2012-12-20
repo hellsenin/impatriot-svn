@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page import="egovframework.com.cmm.service.EgovProperties" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <c:set var="ImgUrl" value="/images/egovframework/cop/bbs/"/>
@@ -11,7 +10,6 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 		<meta http-equiv="content-language" content="ko">
 		<link href="<c:url value='/'/>css/common.css" rel="stylesheet" type="text/css" >
-		<c:if test="${anonymous == 'true'}"><c:set var="prefix" value="/anonymous"/></c:if>
 		<script type="text/javascript" src="<c:url value='/js/EgovBBSMng.js' />" ></script>
 		<style type="text/css">
 		    h1 {font-size:12px;}
@@ -42,7 +40,6 @@
 			<c:forEach var="result" items="${resultList}" varStatus="status">
 			<!-- loop 시작 -->                                
 			  <tr>
-				<td><b><c:out value="${paginationInfo.totalRecordCount+1 - ((searchVO.pageIndex-1) * searchVO.pageSize + status.count)}"/></b></td>            
 				<td align="left">
 					<form name="subForm" method="post" action="<c:url value='/cop/bbs${prefix}/selectBoardArticle.do'/>">
 						<input type="hidden" name="bbsId" value="<c:out value='${result.bbsId}'/>" />
@@ -50,20 +47,13 @@
 						<span class="link"><input type="submit" style="width:320px;border:solid 0px black;text-align:left;" value="<c:out value="${result.nttSj}"/>" ></span>
 					</form>
 				</td>
-				<td ><c:out value="${result.frstRegisterNm}"/></td>
+				<td ><c:out value="${result.ntcrNm}"/></td>
 				<td ><c:out value="${result.frstRegisterPnttm}"/></td>
 			  </tr>
 			 </c:forEach>
 			 <c:if test="${fn:length(resultList) == 0}">
 			 	<tr>
-					<c:choose>
-						<c:when test="${anonymous == 'true'}">
-							<td colspan="4" ><spring:message code="common.nodata.msg" /></td>
-						</c:when>
-						<c:otherwise>
-							<td colspan="5" ><spring:message code="common.nodata.msg" /></td>
-						</c:otherwise>
-					</c:choose>
+			 		<td colspan="5" ><spring:message code="common.nodata.msg" /></td>
 				</tr>
 			 </c:if>  
 			</tbody>
