@@ -30,5 +30,23 @@ public class EDevMainController {
 		
 		return "main/EDevMainView";
 	}
-
+	
+	/**
+	 * Dev 메인 페이지 조회
+	 * @return 메인페이지 정보 Map [key : 항목명]
+	 * 
+	 * @param request
+	 * @param model
+	 * @exception Exception Exception
+	 */
+	@RequestMapping(value = "/dev/navi/mainPage.do")
+	public String getDevNaviPage(HttpServletRequest request, ModelMap model) throws Exception {
+		
+		// 공지사항 메인 컨텐츠 조회 시작 ---------------------------------
+		
+		
+		// 공지사항 메인컨텐츠 조회 끝 -----------------------------------
+		
+		return "dev/EDevNavi";
+	}
 }

@@ -1,71 +1,172 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>HTML5 template</title>
-    <meta charset="utf-8" />
-  
-    <script type="text/javascript">
-        document.createElement('header');
-        document.createElement('menu');
-        document.createElement('content');
-        document.createElement('footer');
-    </script>
-  
-    <style type="text/css">
-        * {
-            margin: 0;
-            padding: 0;
-        }
-  
-        header, menu, content, footer {
-            display: block;
-        }
-  
-        menu ul {
-            list-style-type: none;
-        }
-  
-        menu ul li {
-            float: left;
-            padding: 5px 20px;
-        }
-  
-        content, footer {
-            clear: both;
-        }
-    </style>
+    <title>제이와이케이 디벨로퍼</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="<c:url value='/'/>css/redmond/jquery-ui-1.9.2.custom.css" rel="stylesheet">
+	<script src="<c:url value='/'/>js/jquery-1.8.3.js"></script>
+	<script src="<c:url value='/'/>js/jquery-ui-1.9.2.custom.js"></script>
+	<script>
+	$(function() {
+		$( "#accordion" ).accordion();
+		
+		var availableTags = [
+			"ActionScript",
+			"AppleScript",
+			"Asp",
+			"BASIC",
+			"C",
+			"C++",
+			"Clojure",
+			"COBOL",
+			"ColdFusion",
+			"Erlang",
+			"Fortran",
+			"Groovy",
+			"Haskell",
+			"Java",
+			"JavaScript",
+			"Lisp",
+			"Perl",
+			"PHP",
+			"Python",
+			"Ruby",
+			"Scala",
+			"Scheme"
+		];
+		$( "#autocomplete" ).autocomplete({
+			source: availableTags
+		});
+		
+		$( "#button" ).button();
+		$( "#radioset" ).buttonset();
+		
+		$( "#tabs" ).tabs();
+		
+		$( "#dialog" ).dialog({
+			autoOpen: false,
+			width: 400,
+			buttons: [
+				{
+					text: "Ok",
+					click: function() {
+						$( this ).dialog( "close" );
+					}
+				},
+				{
+					text: "Cancel",
+					click: function() {
+						$( this ).dialog( "close" );
+					}
+				}
+			]
+		});
+
+		// Link to open the dialog
+		$( "#dialog-link" ).click(function( event ) {
+			$( "#dialog" ).dialog( "open" );
+			event.preventDefault();
+		});
+		
+		$( "#datepicker" ).datepicker({
+			inline: true
+		});
+		
+		$( "#slider" ).slider({
+			range: true,
+			values: [ 17, 67 ]
+		});
+		
+		$( "#progressbar" ).progressbar({
+			value: 20
+		});
+
+		// Hover states on the static widgets
+		$( "#dialog-link, #icons li" ).hover(
+			function() {
+				$( this ).addClass( "ui-state-hover" );
+			},
+			function() {
+				$( this ).removeClass( "ui-state-hover" );
+			}
+		);
+	});
+	</script>
 </head>
 <body>
     <header>
-        <h1>A Blank HTML5 template</h1>
-        <menu>
-            <ul>
-                <li>
-                    <a href="http://html5snippets.com" title="snippets">HTML5 snippets</a>
-                </li>
-                <li>
-                    <a href="http://charlesdagley.cz.cc/" title="Portfolio">Dagley Designs</a>
-                </li>
-                <li>
-                    <a href="link" title="link">link</a>
-                </li>
-                <li>
-                    <a href="link" title="link">link</a>
-                </li>
-                <li>
-                    <a href="link" title="link">link</a>
-                </li>
-            </ul>
-        </menu>
+    	<h1>게 시 판</h1>
     </header>
+    
+    <nav>
+    </nav>
   
-    <content>
-        <h2>This is our content area</h2>
-        <p>This is just a free html5 blank template</p>
-    </content>
+    <artcle>
+    	<div id="tabs">
+    		<ul>
+    			<li><a href="#tabs-1">공지사항</a></li>
+    			<li><a href="#tabs-2">자유게시판</a></li>
+    			<li><a href="#tabs-3">개인게시판</a></li>
+    		</ul>
+    		<div id="tabs-1">
+    			<table style="WIDTH: 724px" border=1 cellSpacing=0 cellPadding=0 width=724>
+					<tbody>
+						<tr>
+							<td height=20 width=177>
+								<p>&nbsp;</p>
+							</td>
+							<td height=20 width=177>
+								<p>&nbsp;</p>
+							</td>
+							<td height=20 width=177>
+								<p>&nbsp;</p>
+							</td>
+							<td height=20 width=177>
+								<p>&nbsp;</p>
+							</td>
+						</tr>
+						<tr>
+							<td height=20 width=177>
+								<p>&nbsp;</p>
+							</td>
+							<td height=20 width=177>
+								<p>&nbsp;</p>
+							</td>
+							<td height=20 width=177>
+								<p>&nbsp;</p>
+							</td>
+							<td height=20 width=177>
+								<p>&nbsp;</p>
+							</td>
+						</tr>
+						<tr>
+							<td height=20 width=177>
+								<p>&nbsp;</p>
+							</td>
+							<td height=20 width=177>
+								<p>&nbsp;</p>
+							</td>
+							<td height=20 width=177>
+								<p>&nbsp;</p>
+							</td>
+							<td height=20 width=177>
+								<p>&nbsp;</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+    		</div>
+    		<div id="tabs-2"></div>
+    		<div id="tabs-3"></div>
+    	</div>
+    </artcle>
   
     <footer>
-        As found on html5snippets.com---Follow @charlesdagley
     </footer>
 </body>
 </html>

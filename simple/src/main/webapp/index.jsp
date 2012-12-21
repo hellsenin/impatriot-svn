@@ -67,6 +67,9 @@
                 <li>
                     <a href="<c:url value='/dev/main/mainPage.do'/>" title="Portfolio">JYK Developer</a>
                 </li>
+                <li>
+                    <a href="<c:url value='/dev/navi/mainPage.do'/>" title="Portfolio">JYK Navi</a>
+                </li>
             </ul>
         </menu>
     </header>
