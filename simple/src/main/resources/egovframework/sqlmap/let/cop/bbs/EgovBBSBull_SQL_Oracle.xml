@@ -21,4 +21,9 @@
 		FROM JINDEV_USER.TBB_TEST_BOARD
 	</select>
 	
+	<insert id="BBSBullListDAO.insertBull" parameterClass="Bull">
+INSERT INTO JINDEV_USER.TBB_TEST_BOARD (BOARDID, BOARDNAME, BULLID, BULLTITLE, CONTENT, REGID, REGNAME, REGDATE)
+		VALUES (#bbsId#, #ntcrNm#, #nttId#, #nttSj#, #nttCn#, #ntcrId#, #ntcrNm#, #frstRegisterPnttm#)
+</insert>
+
 </sqlMap>

@@ -125,11 +125,21 @@ public interface EgovBBSAttributeManageService {
 	
 	/**
 	 * 게시판ID로 게시물 속성정보 및 게시물 리스트를 조회한다.
-	 * @param BoardMasterVO
+	 * @param Bull
 	 * 
-	 * @param searchVO
+	 * @param bull
 	 * @exception Exception Exception
 	 */
 	public List<BullVO> getBullList(Bull bull)
+	  throws Exception;
+	
+	/**
+	 * 게시물을 등록한다.
+	 * @param Bull
+	 * 
+	 * @param bull
+	 * @exception Exception Exception
+	 */
+	public boolean insertBull(Bull bull)
 	  throws Exception;
 }

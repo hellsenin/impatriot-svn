@@ -304,4 +304,21 @@ public class EgovBBSAttributeManageServiceImpl extends AbstractServiceImpl imple
     	
 		return bullList;
 	}
+    
+    public boolean insertBull(Bull bull) throws Exception {
+    	
+    	boolean result = false;
+    	
+    	try {
+    		
+    		result = bbsBullListDAO.insertBull(bull);
+    		
+    	} catch (Exception e) {
+    		log.info(e);
+    	} finally {
+    		log.info("반드시 실행되는 Finally");
+    	}
+    	
+		return result;
+	}
 }

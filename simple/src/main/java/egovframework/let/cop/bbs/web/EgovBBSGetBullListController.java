@@ -66,4 +66,24 @@ public class EgovBBSGetBullListController {
     	
     	return "cop/bbs/EgovBoardBullListView";
     }
+    
+    /**
+     * 게시물을 등록한다.
+     * 
+     * @param boardVO
+     * @param sessionVO
+     * @param model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/cop/bbs/insertBull.do")
+    public String insertBull(@ModelAttribute("searchVO") Bull bull, ModelMap model) throws Exception {
+    	
+    	boolean result = bbsAttrbService.insertBull(bull);
+
+    	model.addAttribute("result", result);
+    	model.addAttribute("bull", bull);
+    	
+    	return "cop/bbs/EgovBoardBullReg";
+    }
 }
