@@ -114,52 +114,44 @@
     			<li><a href="#tabs-3">개인게시판</a></li>
     		</ul>
     		<div id="tabs-1">
-    			<table style="WIDTH: 724px" border=1 cellSpacing=0 cellPadding=0 width=724>
+    			<table style="" border=1>
 					<tbody>
 						<tr>
-							<td height=20 width=177>
-								<p>&nbsp;</p>
+							<td>
+								<p>번호</p>
 							</td>
-							<td height=20 width=177>
-								<p>&nbsp;</p>
+							<td>
+								<p>제목</p>
 							</td>
-							<td height=20 width=177>
-								<p>&nbsp;</p>
+							<td>
+								<p>작성자</p>
 							</td>
-							<td height=20 width=177>
-								<p>&nbsp;</p>
-							</td>
-						</tr>
-						<tr>
-							<td height=20 width=177>
-								<p>&nbsp;</p>
-							</td>
-							<td height=20 width=177>
-								<p>&nbsp;</p>
-							</td>
-							<td height=20 width=177>
-								<p>&nbsp;</p>
-							</td>
-							<td height=20 width=177>
-								<p>&nbsp;</p>
-							</td>
-						</tr>
-						<tr>
-							<td height=20 width=177>
-								<p>&nbsp;</p>
-							</td>
-							<td height=20 width=177>
-								<p>&nbsp;</p>
-							</td>
-							<td height=20 width=177>
-								<p>&nbsp;</p>
-							</td>
-							<td height=20 width=177>
-								<p>&nbsp;</p>
+							<td>
+								<p>작성일</p>
 							</td>
 						</tr>
 					</tbody>
 				</table>
+				<c:forEach var="result" items="${resultList}" varStatus="status">
+					<table style="" border=1>
+						<tbody>
+							<tr>
+								<td>
+									<p><c:out value="${result.frstRegisterPnttm}"/></p>
+								</td>
+								<td>
+									<p><c:out value="${result.frstRegisterPnttm}"/></p>
+								</td>
+								<td>
+									<p><c:out value="${result.frstRegisterPnttm}"/></p>
+								</td>
+								<td>
+									<p><c:out value="${result.frstRegisterPnttm}"/></p>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</c:forEach>
     		</div>
     		<div id="tabs-2"></div>
     		<div id="tabs-3"></div>
