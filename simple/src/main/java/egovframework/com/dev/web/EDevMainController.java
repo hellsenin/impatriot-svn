@@ -51,6 +51,7 @@ public class EDevMainController {
 			log.info(e);
 		} finally {
 			model.addAttribute("resultList", resultList);
+			model.addAttribute("resultListCount", resultList.size());
 		}
 		
 		return "main/EDevMainView";

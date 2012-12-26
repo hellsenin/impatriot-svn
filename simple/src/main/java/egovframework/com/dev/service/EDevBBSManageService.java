@@ -12,4 +12,13 @@ public interface EDevBBSManageService {
 	 * @exception Exception Exception
 	 */
 	public List<EDevBBS> getBullList(EDevBBS eDevBBS) throws Exception;
+	
+	/**
+	 * 공지사항 게시물을 등록한다.
+	 * @param EDevBBS
+	 * 
+	 * @param eDevBBS
+	 * @exception Exception Exception
+	 */
+	public void putNoticeBull(EDevBBS eDevBBS) throws Exception;
 }

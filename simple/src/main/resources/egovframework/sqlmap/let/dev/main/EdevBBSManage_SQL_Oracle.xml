@@ -2,15 +2,6 @@
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
 
 <sqlMap namespace="EDevBBSManage">
-
-	<select id="EDevBBSManageDAO.getBullList" resultMap="getBullList" parameterClass="EDevBBS">
-		SELECT BOARDID, BOARDNAME, BULLID, BULLTITLE, CONTENT, REGID, REGNAME, REGDATE
-		FROM JINDEV_USER.TBB_TEST_BOARD
-		WHERE BOARDID = '#bbsId#'
-	</select>
-	
-	<typeAlias alias="EDevBBS" type="egovframework.com.dev.service.EDevBBS"/>
-	
 	<resultMap id="getBullList" class="egovframework.com.dev.service.EDevBBS">
 		<result property="boardId" column="BOARDID"/>
 		<result property="boardNm" column="BOARDNAME"/>
@@ -21,5 +12,25 @@
 		<result property="bullRegNm" column="REGNAME"/>
 		<result property="bullRegDate" column="REGDATE"/>
 	</resultMap>
-	
+	<parameterMap id="bbsId" class="egovframework.com.dev.service.EDevBBS">
+		<parameter property="boardId" />
+	</parameterMap>
+	<parameterMap id="eDevBBS" class="egovframework.com.dev.service.EDevBBS">
+		<parameter property="boardId" />
+		<parameter property="boardNm" />
+		<parameter property="bullId" />
+		<parameter property="bullTitle" />
+		<parameter property="bullContent" />
+		<parameter property="bullRegId" />
+		<parameter property="bullRegNm" />
+		<parameter property="bullRegDate" />
+	</parameterMap>
+	<select id="EDevBBSManageDAO.getBullList" resultClass="egovframework.com.dev.service.EDevBBS" resultMap="getBullList">
+		SELECT BOARDID, BOARDNAME, BULLID, BULLTITLE, CONTENT, REGID, REGNAME, REGDATE
+		FROM JINDEV_USER.TBB_TEST_BOARD
+	</select>
+	<insert id="EDevBBSManageDAO.putNoticeBull" parameterMap="eDevBBS">
+		INSERT INTO JINDEV_USER.TBB_TEST_BOARD (BOARDID, BOARDNAME, BULLID, BULLTITLE, CONTENT, REGID, REGNAME, REGDATE)
+		VALUES
+	</insert>
 </sqlMap>

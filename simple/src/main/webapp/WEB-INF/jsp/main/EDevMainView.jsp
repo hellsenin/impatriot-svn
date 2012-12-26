@@ -12,93 +12,19 @@
 	<script src="<c:url value='/'/>js/jquery-1.8.3.js"></script>
 	<script src="<c:url value='/'/>js/jquery-ui-1.9.2.custom.js"></script>
 	<script>
-	$(function() {
-		$( "#accordion" ).accordion();
-		
-		var availableTags = [
-			"ActionScript",
-			"AppleScript",
-			"Asp",
-			"BASIC",
-			"C",
-			"C++",
-			"Clojure",
-			"COBOL",
-			"ColdFusion",
-			"Erlang",
-			"Fortran",
-			"Groovy",
-			"Haskell",
-			"Java",
-			"JavaScript",
-			"Lisp",
-			"Perl",
-			"PHP",
-			"Python",
-			"Ruby",
-			"Scala",
-			"Scheme"
-		];
-		$( "#autocomplete" ).autocomplete({
-			source: availableTags
+		$(function() {
+			$( "#tabs" ).tabs();
+			
+			$( "#regBull" ).click(function(){
+			});
 		});
-		
-		$( "#button" ).button();
-		$( "#radioset" ).buttonset();
-		
-		$( "#tabs" ).tabs();
-		
-		$( "#tabs-1" ).addClass( "ui-datepicker" );
-		
-		$( "#dialog" ).dialog({
-			autoOpen: false,
-			width: 400,
-			buttons: [
-				{
-					text: "Ok",
-					click: function() {
-						$( this ).dialog( "close" );
-					}
-				},
-				{
-					text: "Cancel",
-					click: function() {
-						$( this ).dialog( "close" );
-					}
-				}
-			]
-		});
-
-		// Link to open the dialog
-		$( "#dialog-link" ).click(function( event ) {
-			$( "#dialog" ).dialog( "open" );
-			event.preventDefault();
-		});
-		
-		$( "#datepicker" ).datepicker({
-			inline: true
-		});
-		
-		$( "#slider" ).slider({
-			range: true,
-			values: [ 17, 67 ]
-		});
-		
-		$( "#progressbar" ).progressbar({
-			value: 20
-		});
-
-		// Hover states on the static widgets
-		$( "#dialog-link, #icons li" ).hover(
-			function() {
-				$( this ).addClass( "ui-state-hover" );
-			},
-			function() {
-				$( this ).removeClass( "ui-state-hover" );
-			}
-		);
-	});
 	</script>
+	<style>
+		body{
+			font: 80% "Trebuchet MS", sans-serif;
+			margin: 30px;
+		}
+	</style>
 </head>
 <body>
     <header>
@@ -113,6 +39,7 @@
     			<li><a href="#tabs-1">공지사항</a></li>
     			<li><a href="#tabs-2">자유게시판</a></li>
     			<li><a href="#tabs-3">개인게시판</a></li>
+    			<li><a href="#tabs-4">등록</a></li>
     		</ul>
     		<div id="tabs-1">
     			<table style="" border=1>
@@ -138,16 +65,16 @@
 						<tbody>
 							<tr>
 								<td>
-									<p><c:out value="${result.frstRegisterPnttm}"/></p>
+									<p><c:out value="${status.count}"/></p>
 								</td>
 								<td>
-									<p><c:out value="${result.frstRegisterPnttm}"/></p>
+									<p><c:out value="${result.bullTitle}"/></p>
 								</td>
 								<td>
-									<p><c:out value="${result.frstRegisterPnttm}"/></p>
+									<p><c:out value="${result.bullRegNm}"/></p>
 								</td>
 								<td>
-									<p><c:out value="${result.frstRegisterPnttm}"/></p>
+									<p><c:out value="${result.bullRegDate}"/></p>
 								</td>
 							</tr>
 						</tbody>
@@ -156,6 +83,58 @@
     		</div>
     		<div id="tabs-2"></div>
     		<div id="tabs-3"></div>
+    		<div id="tabs-4">
+    			<form id="noticeReg" action="/dev/notice/bullReg.do">
+	    			<table>
+	    				<thead>게시물 등록</thead>
+	    				<tbody>
+	    					<tr>
+	    						<td>
+	    							<p>제목 : </p>
+	    						</td>
+	    						<td>
+	    							<input id="regTitle" value="">
+	    						</td>
+	    					</tr>
+	    					<tr>
+	    						<td>
+	    							<p>작성자ID : </p>
+	    						</td>
+	    						<td>
+	    							<input id="regId" value="">
+	    						</td>
+	    					</tr>
+	    					<tr>
+	    						<td>
+	    							<p>작성자명 : </p>
+	    						</td>
+	    						<td>
+	    							<input id="regName" value="">
+	    						</td>
+	    					</tr>
+	    					<tr>
+	    						<td>
+	    							<p>등록게시판 : </p>
+	    						</td>
+	    						<td>
+	    							<input id="regBoardName" value="">
+	    						</td>
+	    					</tr>
+	    					<tr>
+	    						<td>
+	    							<p>내용 : </p>
+	    						</td>
+	    						<td>
+	    							<input id="regContent" value="">
+	    						</td>
+	    					</tr>
+	    				</tbody>
+	    				<tfoot>
+	    					<button id="regBull">등록</button>
+	    				</tfoot>
+	    			</table>
+    			</form>
+    		</div>
     	</div>
     </artcle>
   

@@ -43,4 +43,17 @@ public class EDevAbstractDAO extends SqlMapClientDaoSupport {
     public List list(String queryId, Object parameterObject) {
         return getSqlMapClientTemplate().queryForList(queryId, parameterObject);
     }
+    
+    /**
+     * 입력 처리 SQL mapping 을 실행한다.
+     * @param queryId
+     *        - 입력 처리 SQL mapping 쿼리 ID
+     * @param parameterObject
+     *        - 입력 처리 SQL mapping 입력 데이터를 세팅한 파라메터
+     *        객체(보통 VO 또는 Map)
+     * @return 입력 시 selectKey 를 사용하여 key 를 딴 경우 해당 key
+     */
+    public Object insert(String queryId, Object parameterObject) {
+        return getSqlMapClientTemplate().insert(queryId, parameterObject);
+    }
 }

@@ -14,4 +14,10 @@ public class EDevBBSManageDAO extends EDevAbstractDAO {
 		
 		return list("EDevBBSManageDAO.getBullList", eDevBBS);
 	}
+	
+	@SuppressWarnings("unchecked")
+	public void putNoticeBull(EDevBBS eDevBBS) {
+		
+		insert("EDevBBSManageDAO.putNoticeBull", eDevBBS);
+	}
 }

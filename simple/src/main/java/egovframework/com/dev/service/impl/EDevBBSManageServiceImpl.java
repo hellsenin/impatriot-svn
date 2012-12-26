@@ -39,4 +39,21 @@ public class EDevBBSManageServiceImpl implements EDevBBSManageService {
 		
 		return resultList;
 	}
+	
+	/**
+	 * 공지사항 게시물을 등록한다.
+	 * @param EDevBBS
+	 * 
+	 * @param eDevBBS
+	 * @exception Exception Exception
+	 */
+	public void putNoticeBull(EDevBBS eDevBBS) throws Exception {
+		
+		try {
+			eDevBBSManageDAO.putNoticeBull(eDevBBS);
+		} catch (Exception e) {
+			log.info(e);
+		} finally {
+		}
+	}
 }
