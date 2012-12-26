@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="EDevBBSManage">
+
+	<select id="EDevBBSManageDAO.getBullList" resultMap="getBullList" parameterClass="EDevBBS">
+		SELECT BOARDID, BOARDNAME, BULLID, BULLTITLE, CONTENT, REGID, REGNAME, REGDATE
+		FROM JINDEV_USER.TBB_TEST_BOARD
+		WHERE BOARDID = '#bbsId#'
+	</select>
+	
+	<typeAlias alias="EDevBBS" type="egovframework.com.dev.service.EDevBBS"/>
+	
+	<resultMap id="getBullList" class="egovframework.com.dev.service.EDevBBS">
+		<result property="boardId" column="BOARDID"/>
+		<result property="boardNm" column="BOARDNAME"/>
+		<result property="bullId" column="BULLID"/>
+		<result property="bullTitle" column="BULLTITLE"/>
+		<result property="bullContent" column="CONTENT"/>
+		<result property="bullRegId" column="REGID"/>
+		<result property="bullRegNm" column="REGNAME"/>
+		<result property="bullRegDate" column="REGDATE"/>
+	</resultMap>
+	
+</sqlMap>

@@ -48,6 +48,8 @@
 		
 		$( "#tabs" ).tabs();
 		
+		$( "#tabs-1" ).addClass( "ui-datepicker" );
+		
 		$( "#dialog" ).dialog({
 			autoOpen: false,
 			width: 400,
@@ -100,7 +102,6 @@
 </head>
 <body>
     <header>
-    	<h1>게 시 판</h1>
     </header>
     
     <nav>

@@ -43,6 +43,9 @@ public class EDevMainController {
 			if (request.getParameter("boardId") != null) {
 				eDevBBS.setBoardId(request.getParameter("boardId"));
 				resultList = bbsManageService.getBullList(eDevBBS);
+			} else {
+				eDevBBS.setBoardId("TU_111");
+				resultList = bbsManageService.getBullList(eDevBBS);
 			}
 		} catch (Exception e) {
 			log.info(e);
