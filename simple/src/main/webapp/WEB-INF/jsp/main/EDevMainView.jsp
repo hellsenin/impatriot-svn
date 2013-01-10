@@ -10,14 +10,45 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link href="<c:url value='/'/>css/redmond/jquery-ui-1.9.2.custom.css" rel="stylesheet">
 	<script src="<c:url value='/'/>js/jquery-1.8.3.js"></script>
+	<script src="<c:url value='/'/>js/jquery-1.8.3.js"></script>
 	<script src="<c:url value='/'/>js/jquery-ui-1.9.2.custom.js"></script>
 	<script>
+		$(document).ready(function(){
+			getBoardNmList();
+		});
+		
 		$(function() {
 			$( "#tabs" ).tabs();
 			
 			$( "#regBull" ).click(function(){
 			});
 		});
+		
+		function getBoardNmList() {
+			alert("호출됨");
+			$.ajax(
+					{
+							type : "POST",
+							url : "<c:url value='/'/>dev/getDevBoardName.do",
+							dataType : "XML",
+							timeout : 30000,
+							cache : false,
+							data : "action=getDevBoardName",
+							error : function(request, status, error) {
+								alert("오류가 발생하였습니다.\n\r\n\r상태코드 : " + request.status + "\n\r오류 메세지 : \n\r" + request.responseText);
+							},
+							success : function() {
+								var strOption = '<option value="">선택하세요</option>';
+								$(xml).find("board").each(
+										function() {
+											strOption = strOption + '<option value="' + $(this).find("boardId").text() + '">' + $(this).find("boardNm").text() + '</option>';
+										}
+								)
+								$("#boardList").html(strOption);
+							}
+					}
+			);
+		}
 	</script>
 	<style>
 		body{
@@ -28,6 +59,9 @@
 </head>
 <body>
     <header>
+    	<h1>
+    		<a href="<c:url value='/'/>dev/main/mainPage.do">JYK Developer</a>
+    	</h1>
     </header>
     
     <nav>
@@ -84,7 +118,7 @@
     		<div id="tabs-2"></div>
     		<div id="tabs-3"></div>
     		<div id="tabs-4">
-    			<form id="noticeReg" action="/dev/notice/bullReg.do">
+    			<form id="noticeReg" method="post" action="<c:url value='/'/>dev/notice/bullReg.do">
 	    			<table>
 	    				<thead>게시물 등록</thead>
 	    				<tbody>
@@ -93,7 +127,7 @@
 	    							<p>제목 : </p>
 	    						</td>
 	    						<td>
-	    							<input id="regTitle" value="">
+	    							<input id="regTitle" name="regTitle" value="">
 	    						</td>
 	    					</tr>
 	    					<tr>
@@ -101,7 +135,7 @@
 	    							<p>작성자ID : </p>
 	    						</td>
 	    						<td>
-	    							<input id="regId" value="">
+	    							<input id="regId" name="regId" value="">
 	    						</td>
 	    					</tr>
 	    					<tr>
@@ -109,7 +143,7 @@
 	    							<p>작성자명 : </p>
 	    						</td>
 	    						<td>
-	    							<input id="regName" value="">
+	    							<input id="regName" name="regName" value="">
 	    						</td>
 	    					</tr>
 	    					<tr>
@@ -117,7 +151,13 @@
 	    							<p>등록게시판 : </p>
 	    						</td>
 	    						<td>
-	    							<input id="regBoardName" value="">
+	    						<select id="boardList">
+	    							<option value="">선택하세요</option>
+	    						</select>
+	    						<!--
+	    							<input id="regBoardId" name="regBoardId" type=>
+	    							<input id="regBoardName" name="regBoardName" value="">
+	    						-->
 	    						</td>
 	    					</tr>
 	    					<tr>
@@ -125,12 +165,12 @@
 	    							<p>내용 : </p>
 	    						</td>
 	    						<td>
-	    							<input id="regContent" value="">
+	    							<input id="regContent" name="regContent" value="">
 	    						</td>
 	    					</tr>
 	    				</tbody>
 	    				<tfoot>
-	    					<button id="regBull">등록</button>
+	    					<button id="regBull" type="submit">등록</button>
 	    				</tfoot>
 	    			</table>
     			</form>

@@ -8,6 +8,12 @@ import egovframework.com.dev.service.EDevBBS;
 
 @Repository("EDevBBSManageDAO")
 public class EDevBBSManageDAO extends EDevAbstractDAO {
+	
+	@SuppressWarnings("unchecked")
+	public List<EDevBBS> getBoardNmList(EDevBBS eDevBBS) {
+		
+		return list("EDevBBSManageDAO.getBoardNmList", eDevBBS);
+	}
 
 	@SuppressWarnings("unchecked")
 	public List<EDevBBS> getBullList(EDevBBS eDevBBS) {
