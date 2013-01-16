@@ -37,8 +37,7 @@
 		FROM JINDEV_USER.TBB_TEST_BOARD
 	</select>
 	<insert id="EDevBBSManageDAO.putNoticeBull" parameterMap="eDevBBS">
-INSERT INTO JINDEV_USER.TBB_TEST_BOARD (BOARDID, BOARDNAME, BULLID,
-  BULLTITLE, CONTENT, REGID, REGNAME, REGDATE)
-  VALUES ('', NULL, '', NULL, NULL, NULL, NULL, NULL)
-</insert>
+		INSERT INTO JINDEV_USER.TBB_TEST_BOARD (BOARDID, BOARDNAME, BULLID, BULLTITLE, CONTENT, REGID, REGNAME, REGDATE)
+		VALUES (#boardId#, #boardNm#, #bullId#, #bullTitle#, EMPTY_CLOB(), #bullRegId#, #bullRegNm#, sysdate)
+	</insert>
 </sqlMap>

@@ -2,6 +2,8 @@ package egovframework.com.dev.service;
 
 import java.io.Serializable;
 
+import oracle.sql.CLOB;
+
 @SuppressWarnings("serial")
 public class EDevBBS implements Serializable {
 	
@@ -29,6 +31,11 @@ public class EDevBBS implements Serializable {
 	 * 게시물 본문 내용
 	 */
 	private String bullContent = "";
+	
+	/**
+	 * 게시물 본문 내용
+	 */
+	private CLOB bullContentCLOB = null;
 	
 	/**
 	 * 게시물 등록자 아이디
@@ -156,5 +163,19 @@ public class EDevBBS implements Serializable {
 	 */
 	public void setBullRegDate(String bullRegDate) {
 		this.bullRegDate = bullRegDate;
+	}
+
+	/**
+	 * @return the bullContentCLOB
+	 */
+	public CLOB getBullContentCLOB() {
+		return bullContentCLOB;
+	}
+
+	/**
+	 * @param bullContentCLOB the bullContentCLOB to set
+	 */
+	public void setBullContentCLOB(CLOB bullContentCLOB) {
+		this.bullContentCLOB = bullContentCLOB;
 	}
 }

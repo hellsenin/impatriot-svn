@@ -1,9 +1,6 @@
 package egovframework.com.dev.web;
 
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -43,13 +40,16 @@ public class EDevBBSManageController {
 	public void getDevBoardName(HttpServletRequest request, HttpServletResponse reponse, ModelMap model) throws Exception {
 		
 		EDevBBS eDevBBS = new EDevBBS();
+		reponse.setContentType("text/html; charset=UTF-8");
+		reponse.setCharacterEncoding("UTF-8");
 		PrintWriter out = reponse.getWriter();
 		XMLOutputter outputter = new XMLOutputter(Format.getPrettyFormat().setEncoding("UTF-8"));
 		String action = request.getParameter("action");
 		
 		try {
 			if ("getDevBoardName".equals(action)) {
-				reponse.setContentType("text/xml");
+				//reponse.setContentType("text/html; charset=UTF-8");
+				//reponse.setCharacterEncoding("UTF-8");
 				result = bbsManageService.getBoardNmList(eDevBBS);
 				
 				log.info(result.toString());
@@ -77,12 +77,13 @@ public class EDevBBSManageController {
 		EDevBBS eDevBBS = new EDevBBS();
 		String returnPage = "";
 		
-		log.info(request.getParameter("regBoardName"));
-		log.info(request.getParameter("regTitle"));
-		log.info(request.getParameter("regContent"));
-		log.info(request.getParameter("regId"));
-		log.info(request.getParameter("regName"));
-		log.info(EDevBBSManageUtil.getBullId(request.getParameter("regBoardId")));
+		log.info("Request regBoardId : " + request.getParameter("regBoardId"));
+		log.info("Request regBoardName : " + request.getParameter("regBoardName"));
+		log.info("Request regTitle : " + request.getParameter("regTitle"));
+		log.info("Request regContent : " + request.getParameter("regContent"));
+		log.info("Request regId : " + request.getParameter("regId"));
+		log.info("Request regName : " + request.getParameter("regName"));
+		log.info("Request regBullId : " + EDevBBSManageUtil.getBullId(request.getParameter("regBoardId")));
 		
 		try {
 			if (request.getParameter("regBoardId") != null) {
@@ -94,7 +95,7 @@ public class EDevBBSManageController {
 				eDevBBS.setBullRegId(request.getParameter("regId"));
 				eDevBBS.setBullRegNm(request.getParameter("regName"));
 				
-				//bbsManageService.putNoticeBull(eDevBBS);
+				bbsManageService.putNoticeBull(eDevBBS);
 			} else {
 				log.info("[exeDevBullReg] Request Parameter regBoardId is null !!!");
 			}

@@ -22,26 +22,36 @@
 			
 			$( "#regBull" ).click(function(){
 			});
+			
+			$('#boardList').bind('change', boardListChange);
 		});
 		
+		function boardListChange() {
+			//$('#regBoardId').val($("#boardList option:selected").val());
+			//$('#regBoardName').val($("#boardList option:selected").val());
+			var boardId = $("#boardList option:selected").val().split("|")[0];
+			var boardNm = $("#boardList option:selected").val().split("|")[1];
+			$('#regBoardId').val(boardId);
+			$('#regBoardName').val(boardNm);
+		}
+		
 		function getBoardNmList() {
-			alert("호출됨");
 			$.ajax(
 					{
 							type : "POST",
 							url : "<c:url value='/'/>dev/getDevBoardName.do",
 							dataType : "XML",
-							timeout : 30000,
+							timeout : 2000,
 							cache : false,
 							data : "action=getDevBoardName",
 							error : function(request, status, error) {
 								alert("오류가 발생하였습니다.\n\r\n\r상태코드 : " + request.status + "\n\r오류 메세지 : \n\r" + request.responseText);
 							},
-							success : function() {
+							success : function(xml) {
 								var strOption = '<option value="">선택하세요</option>';
 								$(xml).find("board").each(
 										function() {
-											strOption = strOption + '<option value="' + $(this).find("boardId").text() + '">' + $(this).find("boardNm").text() + '</option>';
+											strOption = strOption + '<option value="' + $(this).find("boardId").text() + '|' + $(this).find("boardNm").text() + '">' + $(this).find("boardNm").text() + '</option>';
 										}
 								)
 								$("#boardList").html(strOption);
@@ -154,10 +164,8 @@
 	    						<select id="boardList">
 	    							<option value="">선택하세요</option>
 	    						</select>
-	    						<!--
-	    							<input id="regBoardId" name="regBoardId" type=>
-	    							<input id="regBoardName" name="regBoardName" value="">
-	    						-->
+	    						<input type='hidden' id="regBoardId" name="regBoardId" value="">
+	    						<input type='hidden' id="regBoardName" name="regBoardName" value="">
 	    						</td>
 	    					</tr>
 	    					<tr>
