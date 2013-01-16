@@ -36,7 +36,7 @@
 		SELECT BOARDID, BOARDNAME, BULLID, BULLTITLE, CONTENT, REGID, REGNAME, REGDATE
 		FROM JINDEV_USER.TBB_TEST_BOARD
 	</select>
-	<insert id="EDevBBSManageDAO.putNoticeBull" parameterMap="eDevBBS">
+	<insert id="EDevBBSManageDAO.putNoticeBull" parameterClass="egovframework.com.dev.service.EDevBBS">
 		INSERT INTO JINDEV_USER.TBB_TEST_BOARD (BOARDID, BOARDNAME, BULLID, BULLTITLE, CONTENT, REGID, REGNAME, REGDATE)
 		VALUES (#boardId#, #boardNm#, #bullId#, #bullTitle#, EMPTY_CLOB(), #bullRegId#, #bullRegNm#, sysdate)
 	</insert>

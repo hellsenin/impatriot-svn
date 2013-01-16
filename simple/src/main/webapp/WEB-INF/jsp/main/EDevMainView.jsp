@@ -84,6 +84,7 @@
     			<li><a href="#tabs-2">자유게시판</a></li>
     			<li><a href="#tabs-3">개인게시판</a></li>
     			<li><a href="#tabs-4">등록</a></li>
+    			<li><a href="#tabs-5">사용자등록</a></li>
     		</ul>
     		<div id="tabs-1">
     			<table style="" border=1>
@@ -179,6 +180,42 @@
 	    				</tbody>
 	    				<tfoot>
 	    					<button id="regBull" type="submit">등록</button>
+	    				</tfoot>
+	    			</table>
+    			</form>
+    		</div>
+    		<div id="tabs-5">
+    			<form id="userReg" method="post" action="<c:url value='/'/>dev/user/userReg.do">
+	    			<table>
+	    				<thead>사용자 정보 등록</thead>
+	    				<tbody>
+	    					<tr>
+	    						<td>
+	    							<p>아이디 : </p>
+	    						</td>
+	    						<td>
+	    							<input id="regUserId" name="regUserId" value="">
+	    						</td>
+	    					</tr>
+	    					<tr>
+	    						<td>
+	    							<p>이름 : </p>
+	    						</td>
+	    						<td>
+	    							<input id="regUserName" name="regUserName" value="">
+	    						</td>
+	    					</tr>
+	    					<tr>
+	    						<td>
+	    							<p>나이 : </p>
+	    						</td>
+	    						<td>
+	    							<input id="regUserAge" name="regUserAge" value="">
+	    						</td>
+	    					</tr>
+	    				</tbody>
+	    				<tfoot>
+	    					<button id="regUser" type="submit">등록</button>
 	    				</tfoot>
 	    			</table>
     			</form>
