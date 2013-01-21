@@ -8,6 +8,6 @@
 	</parameterMap>
 	<insert id="EDevUserManageDAO.putUserInfo" parameterMap="eDevUser">
 INSERT INTO JINDEV_USER.TEST_USER (ID, NAME, AGE, CREATE_DATE)
-  VALUES ('$userId$', '$userName$', $userAge$, SYSDATE)
+  VALUES ($userId$, $userName$, $userAge$, SYSDATE)
 </insert>
 </sqlMap>
